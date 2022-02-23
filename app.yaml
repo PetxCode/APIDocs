@@ -1,0 +1,93 @@
+swagger: "2.0"
+
+info:
+  title: A Simple API Docs
+  description: "just fill here up"
+  contact:
+    email: codelab@test.com
+    url: codelab.com
+
+schemes: [http, https]
+
+paths:
+  /:
+    get:
+      summary: This is just a test Route
+      description: This is just a test Route
+      responses:
+        200:
+          description: success
+          schema:
+            type: string
+
+  /users:
+    get:
+      summary: This is just a test Route to get all Users
+      description: This is just a test Route to get all Users
+      responses:
+        200:
+          description: success
+          schema:
+            type: array
+            items:
+              type: object
+              properties:
+                id:
+                  type: integer
+                name:
+                  type: string
+
+  /create:
+    post:
+      summary: This is just a test Route to get all Users
+      description: This is just a test Route to get all Users
+      produces:
+        - application/json
+      consumes:
+        - application/json
+
+      parameters:
+        - in: body
+          name: create
+
+          schema:
+            type: object
+            properties:
+              id:
+                type: integer
+              name:
+                type: string
+
+      responses:
+        201:
+          description: success
+          schema:
+            type: object
+            properties:
+              id:
+                type: integer
+              name:
+                type: string
+
+  /user/{userID}:
+    get:
+      summary: This is just a test Route to get single User
+      description: This is just a test Route to get single Users
+
+      parameters:
+        - name: userID
+          in: path
+          required: true
+          schema:
+            type: integer
+
+      responses:
+        200:
+          description: success
+          schema:
+            type: object
+            properties:
+              id:
+                type: integer
+              name:
+                type: string
